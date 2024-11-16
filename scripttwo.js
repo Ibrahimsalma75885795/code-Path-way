@@ -7,7 +7,7 @@ let isEnglish = true;
 const translations = {
     english: {
         title: "Welcome to Gammal Tech",
-        description: "Gammal Tech is a leading educational platform that provides cutting-edge training in programming, artificial intelligence, and modern technologies. Our mission is to empower learners with practical skills to excel in the tech industry.",
+        description: "Gammal Tech is a leading educational platform that provides cutting-edge training in programming, artificial intelligence, and modern technologies. Our mission is to empower learners with practical skills to excel in the tech industry",
         button: "Translate to Arabic"
     },
     arabic: {
