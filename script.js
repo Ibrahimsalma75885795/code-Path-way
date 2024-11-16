@@ -1,41 +1,54 @@
-const quizForm = document.getElementById("quiz-form");
-const resultContainer = document.getElementById("result-container");
-const resultMessage = document.getElementById("result-message");
-const improveBtn = document.getElementById("improve-btn");
-const translateBtn = document.getElementById("translate-btn");
+let isArabic = false;
 
-const correctAnswers = 2; // Update this with the number of questions
+function switchLanguage() {
+    const elements = {
+        title: { en: "Programming Skills Test", ar: "اختبار مهارات البرمجة" },
+        "test-instruction": {
+            en: "Answer the following 10 questions to assess your skills:",
+            ar: "أجب عن الأسئلة العشرة التالية لتقييم مهاراتك:"
+        },
+        q1: {
+            en: "What does 'var' mean in JavaScript?",
+            ar: "ماذا تعني 'var' في JavaScript؟"
+        },
+        q2: {
+            en: "What does 'let' do in JavaScript?",
+            ar: "ماذا يفعل 'let' في JavaScript؟"
+        },
+        "language-switcher": {
+            en: "Switch to Arabic",
+            ar: "التبديل إلى الإنجليزية"
+        }
+    };
 
-document.getElementById("submit-quiz").addEventListener("click", () => {
-  let score = 0;
-  const formData = new FormData(quizForm);
-  formData.forEach((value) => {
-    if (value === "correct") score++;
-  });
-  
-  const grade = (score / correctAnswers) * 100;
-  resultMessage.innerText = `Your grade is ${grade.toFixed(2)}%. ${
-    grade < 70 ? "Keep practicing!" : "Great job!"
-  }`;
+    isArabic = !isArabic;
 
-  quizForm.classList.add("hidden");
-  resultContainer.classList.remove("hidden");
-});
+    for (const id in elements) {
+        const element = document.getElementById(id);
+        if (element) {
+            element.textContent = elements[id][isArabic ? "ar" : "en"];
+        }
+    }
+}
 
-improveBtn.addEventListener("click", () => {
-  window.location.href = "gammal-tech.html";
-});
+function calculateScore() {
+    const form = document.getElementById("quiz-form");
+    const answers = form.querySelectorAll("input[type='radio']:checked");
+    let score = 0;
 
-translateBtn.addEventListener("click", () => {
-  if (document.documentElement.lang === "en") {
-    document.documentElement.lang = "ar";
-    document.body.style.direction = "rtl";
-    translateBtn.innerText = "ترجمة إلى الإنجليزية";
-    document.getElementById("quiz-title").innerText = "اختبار البرمجة";
-  } else {
-    document.documentElement.lang = "en";
-    document.body.style.direction = "ltr";
-    translateBtn.innerText = "Translate to Arabic";
-    document.getElementById("quiz-title").innerText = "Programming Quiz";
-  }
-});
+    answers.forEach(answer => {
+        if (answer.value === "correct") score++;
+    });
+
+    document.getElementById("test-section").style.display = "none";
+    document.getElementById("result-section").style.display = "block";
+
+    const resultMessage = document.getElementById("result-message");
+    resultMessage.textContent = isArabic
+        ? `حصلت على ${score} من 10`
+        : `You scored ${score} out of 10`;
+}
+
+function goToPage(page) {
+    window.location.href = `${page}.html`;
+}
