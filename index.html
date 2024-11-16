@@ -1,23 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programming Quiz</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programming Quiz</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Programming Quiz</h1>
-        <div id="quiz-container">
-            <div id="question-container"></div>
-            <input type="text" id="answer-input" placeholder="Type your answer here..." />
-            <button id="next-btn" onclick="nextQuestion()">Next</button>
+  <div id="content">
+    <h1 id="quiz-title">Programming Quiz</h1>
+    <div id="quiz-container">
+      <form id="quiz-form">
+        <div class="question">
+          <label>1. What does HTML stand for?</label><br>
+          <input type="radio" name="q1" value="wrong"> Hyper Text Markdown Language<br>
+          <input type="radio" name="q1" value="correct"> Hyper Text Markup Language<br>
         </div>
-        <div id="result-container" class="hidden">
-            <a href="https://www.gammal.tech/">Well done but you need to improve your skills! Improve your skills</a>
+        <div class="question">
+          <label>2. What does CSS stand for?</label><br>
+          <input type="radio" name="q2" value="correct"> Cascading Style Sheets<br>
+          <input type="radio" name="q2" value="wrong"> Computer Style Sheets<br>
         </div>
+        <!-- Add more questions similarly -->
+        <button type="button" id="submit-quiz">Submit Quiz</button>
+      </form>
     </div>
-    <script src="script.js"></script>
+    <div id="result-container" class="hidden">
+      <h2 id="result-message"></h2>
+      <button id="improve-btn">Improve Your Skills</button>
+    </div>
+  </div>
+  <footer>
+    <button id="translate-btn">Translate to Arabic</button>
+  </footer>
+  <script src="script.js"></script>
 </body>
 </html>
