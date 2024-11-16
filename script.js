@@ -1,41 +1,41 @@
-const questions = [
-    { category: "HTML", question: "What does HTML stand for?" },
-    { category: "CSS", question: "What does CSS stand for?" },
-    { category: "JavaScript", question: "What is the purpose of JavaScript in web development?" },
-    { category: "Variables", question: "What is the correct syntax to declare a variable in JavaScript?" },
-    { category: "Data Types", question: "What is the output of `console.log(typeof null)`?" },
-    { category: "DOM", question: "What does the `querySelector` method do in JavaScript?" },
-    { category: "ES6", question: "What is the difference between `let`, `const`, and `var`?" },
-    { category: "Git", question: "What is the purpose of the `git commit` command?" },
-    { category: "JSON", question: "What does `JSON` stand for?" },
-    { category: "Misc", question: "What is the purpose of the `<script>` tag in HTML?" }
-];
+const quizForm = document.getElementById("quiz-form");
+const resultContainer = document.getElementById("result-container");
+const resultMessage = document.getElementById("result-message");
+const improveBtn = document.getElementById("improve-btn");
+const translateBtn = document.getElementById("translate-btn");
 
-let currentQuestionIndex = 0;
+const correctAnswers = 2; // Update this with the number of questions
 
-function nextQuestion() {
-    const questionContainer = document.getElementById('question-container');
-    const answerInput = document.getElementById('answer-input');
-    const userAnswer = answerInput.value.trim();
+document.getElementById("submit-quiz").addEventListener("click", () => {
+  let score = 0;
+  const formData = new FormData(quizForm);
+  formData.forEach((value) => {
+    if (value === "correct") score++;
+  });
+  
+  const grade = (score / correctAnswers) * 100;
+  resultMessage.innerText = `Your grade is ${grade.toFixed(2)}%. ${
+    grade < 70 ? "Keep practicing!" : "Great job!"
+  }`;
 
-    // Clear the input field for the next question
-    answerInput.value = "";
+  quizForm.classList.add("hidden");
+  resultContainer.classList.remove("hidden");
+});
 
-    if (currentQuestionIndex < questions.length) {
-        const currentQuestion = questions[currentQuestionIndex];
-        questionContainer.textContent = `[${currentQuestion.category}] ${currentQuestion.question}`;
-        currentQuestionIndex++;
-    } else {
-        document.getElementById('quiz-container').classList.add('hidden');
-        document.getElementById('result-container').classList.remove('hidden');
-    }
-}
+improveBtn.addEventListener("click", () => {
+  window.location.href = "gammal-tech.html";
+});
 
-function redirectToWebsite() {
-    window.location.href = "https://ibrahimsalma75885795.github.io/code-Path-way/#home";
-}
-
-// Load the first question when the page loads
-window.onload = () => {
-    nextQuestion();
-};
+translateBtn.addEventListener("click", () => {
+  if (document.documentElement.lang === "en") {
+    document.documentElement.lang = "ar";
+    document.body.style.direction = "rtl";
+    translateBtn.innerText = "ترجمة إلى الإنجليزية";
+    document.getElementById("quiz-title").innerText = "اختبار البرمجة";
+  } else {
+    document.documentElement.lang = "en";
+    document.body.style.direction = "ltr";
+    translateBtn.innerText = "Translate to Arabic";
+    document.getElementById("quiz-title").innerText = "Programming Quiz";
+  }
+});
