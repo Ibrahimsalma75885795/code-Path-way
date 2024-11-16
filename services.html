@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1 id="page-title">Our Services</h1>
+        <button id="language-switcher" onclick="switchLanguage()">Switch to Arabic</button>
+    </header>
+    <main>
+        <ul id="services-list">
+            <li>Comprehensive programming courses</li>
+            <li>Personalized learning tracks</li>
+            <li>Real-world projects and mentorship</li>
+        </ul>
+        <nav>
+            <a href="home.html">Home</a> | 
+            <a href="about.html">About</a> | 
+            <a href="services.html">Services</a> | 
+            <a href="contact.html">Contact</a>
+        </nav>
+    </main>
+    <footer>
+        <p>&copy; 2024 Gammal Tech</p>
+    </footer>
+    <script>
+        let isArabic = false;
+
+        function switchLanguage() {
+            const elements = {
+                "page-title": { en: "Our Services", ar: "خدماتنا" },
+                "services-list": {
+                    en: [
+                        "Comprehensive programming courses",
+                        "Personalized learning tracks",
+                        "Real-world projects and mentorship"
+                    ],
+                    ar: [
+                        "دورات شاملة في البرمجة",
+                        "مسارات تعليمية مخصصة",
+                        "مشاريع واقعية وإرشاد"
+                    ]
+                },
+                "language-switcher": {
+                    en: "Switch to Arabic",
+                    ar: "التبديل إلى الإنجليزية"
+                }
+            };
+
+            isArabic = !isArabic;
+
+            document.getElementById("page-title").textContent = elements["page-title"][isArabic ? "ar" : "en"];
+            const servicesList = document.getElementById("services-list");
+            servicesList.innerHTML = "";
+            elements["services-list"][isArabic ? "ar" : "en"].forEach(service => {
+                const li = document.createElement("li");
+                li.textContent = service;
+                servicesList.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>
