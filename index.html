@@ -1,38 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Programming Quiz!</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming Skills Test</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div id="content">
-    <h1 id="quiz-title">Programming Quiz</h1>
-    <div id="quiz-container">
-      <form id="quiz-form">
-        <div class="question">
-          <label>1. What does HTML stand for?</label><br>
-          <input type="radio" name="q1" value="wrong"> Hyper Text Markdown Language<br>
-          <input type="radio" name="q1" value="correct"> Hyper Text Markup Language<br>
+    <header>
+        <h1 id="title">Programming Skills Test</h1>
+        <button id="language-switcher" onclick="switchLanguage()">Switch to Arabic</button>
+    </header>
+    <main>
+        <div id="test-section">
+            <p id="test-instruction">Answer the following 10 questions to assess your skills:</p>
+            <form id="quiz-form">
+                <div class="question">
+                    <p id="q1">What does 'var' mean in JavaScript?</p>
+                    <label><input type="radio" name="q1" value="correct"> A. Variable</label><br>
+                    <label><input type="radio" name="q1" value="wrong"> B. Value</label><br>
+                    <label><input type="radio" name="q1" value="wrong"> C. Validator</label><br>
+                    <label><input type="radio" name="q1" value="wrong"> D. Version</label>
+                </div>
+                <!-- Repeat for 10 questions -->
+                <!-- Example of another question -->
+                <div class="question">
+                    <p id="q2">What does 'let' do in JavaScript?</p>
+                    <label><input type="radio" name="q2" value="correct"> A. Declare a variable</label><br>
+                    <label><input type="radio" name="q2" value="wrong"> B. Loop through items</label><br>
+                    <label><input type="radio" name="q2" value="wrong"> C. Validate input</label><br>
+                    <label><input type="radio" name="q2" value="wrong"> D. Display output</label>
+                </div>
+                <!-- Add up to 10 questions -->
+                <button type="button" onclick="calculateScore()">Submit</button>
+            </form>
         </div>
-        <div class="question">
-          <label>2. What does CSS stand for?</label><br>
-          <input type="radio" name="q2" value="correct"> Cascading Style Sheets<br>
-          <input type="radio" name="q2" value="wrong"> Computer Style Sheets<br>
+        <div id="result-section" style="display: none;">
+            <p id="result-message"></p>
+            <button onclick="goToPage('home')">Improve Programming Skills</button>
         </div>
-        <!-- Add more questions similarly -->
-        <button type="button" id="submit-quiz">Submit Quiz</button>
-      </form>
-    </div>
-    <div id="result-container" class="hidden">
-      <h2 id="result-message"></h2>
-      <button id="gammaltech.html">Improve Your Skills</button>
-    </div>
-  </div>
-  <footer>
-    <button id="translate-btn">Translate to Arabic</button>
-  </footer>
-  <script src="script.js"></script>
+    </main>
+    <footer>
+        <p>&copy; 2024 Gammal Tech</p>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
