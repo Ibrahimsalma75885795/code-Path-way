@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Gammal Tech</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1 id="page-title">About Us</h1>
+        <button id="language-switcher" onclick="switchLanguage()">Switch to Arabic</button>
+    </header>
+    <main>
+        <p id="about-text">
+            Gammal Tech is dedicated to helping aspiring programmers achieve their goals through expert-led courses and interactive learning.
+        </p>
+        <nav>
+            <a href="home.html">Home</a> | 
+            <a href="about.html">About</a> | 
+            <a href="services.html">Services</a> | 
+            <a href="contact.html">Contact</a>
+        </nav>
+    </main>
+    <footer>
+        <p>&copy; 2024 Gammal Tech</p>
+    </footer>
+    <script>
+        let isArabic = false;
+
+        function switchLanguage() {
+            const elements = {
+                "page-title": { en: "About Us", ar: "من نحن" },
+                "about-text": {
+                    en: "Gammal Tech is dedicated to helping aspiring programmers achieve their goals through expert-led courses and interactive learning.",
+                    ar: "تكرس Gammal Tech جهودها لمساعدة المبرمجين الطموحين على تحقيق أهدافهم من خلال دورات يقودها خبراء وتعليم تفاعلي."
+                },
+                "language-switcher": {
+                    en: "Switch to Arabic",
+                    ar: "التبديل إلى الإنجليزية"
+                }
+            };
+
+            isArabic = !isArabic;
+
+            for (const id in elements) {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.textContent = elements[id][isArabic ? "ar" : "en"];
+                }
+            }
+        }
+    </script>
+</body>
+</html>
