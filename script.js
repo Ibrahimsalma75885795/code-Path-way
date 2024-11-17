@@ -37,7 +37,7 @@ function calculateScore() {
     let score = 0;
 
     answers.forEach(answer => {
-        if (answer.value === "correct") score++;
+        if (answer.value === "correct") score+=1;
     });
 
     document.getElementById("test-section").style.display = "none";
