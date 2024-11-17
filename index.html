@@ -9,12 +9,11 @@
 <body>
     <header>
         <h1 id="title">Programming Skills Test</h1>
-<button id="language-switcher" onclick="switchLanguage()" style="color: black;">Switch to Arabic</button>
-
+        <button id="language-switcher" onclick="switchLanguage()">Switch to Arabic</button>
     </header>
     <main>
         <div id="test-section">
-            <p id="test-instruction">Answer the following 2 questions to assess your skills:</p>
+            <p id="test-instruction">Answer the following 3 questions to assess your skills:</p>
             <form id="quiz-form">
                 <div class="question">
                     <p id="q1">What does 'var' mean in JavaScript?</p>
@@ -23,8 +22,6 @@
                     <label><input type="radio" name="q1" value="wrong"> C. Validator</label><br>
                     <label><input type="radio" name="q1" value="wrong"> D. Version</label>
                 </div>
-                <!-- Repeat for 10 questions -->
-                <!-- Example of another question -->
                 <div class="question">
                     <p id="q2">What does 'let' do in JavaScript?</p>
                     <label><input type="radio" name="q2" value="correct"> A. Declare a variable</label><br>
@@ -32,8 +29,13 @@
                     <label><input type="radio" name="q2" value="wrong"> C. Validate input</label><br>
                     <label><input type="radio" name="q2" value="wrong"> D. Display output</label>
                 </div>
-              
-                <!-- Add up to 10 questions -->
+                <div class="question">
+                    <p id="q3">What does 'const' do in JavaScript?</p>
+                    <label><input type="radio" name="q3" value="correct"> A. Define a constant</label><br>
+                    <label><input type="radio" name="q3" value="wrong"> B. Loop through constants</label><br>
+                    <label><input type="radio" name="q3" value="wrong"> C. Display a constant</label><br>
+                    <label><input type="radio" name="q3" value="wrong"> D. Initialize a function</label>
+                </div>
                 <button type="button" onclick="calculateScore()">Submit</button>
             </form>
         </div>
