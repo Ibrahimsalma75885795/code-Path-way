@@ -4,7 +4,7 @@ function switchLanguage() {
     const elements = {
         title: { en: "Programming Skills Test", ar: "اختبار مهارات البرمجة" },
         "test-instruction": {
-            en: "Answer the following 2 questions to assess your skills:",
+            en: "Answer the following 3 questions to assess your skills:",
             ar: "أجب عن الأسئلة  التالية لتقييم مهاراتك:"
         },
         q1: {
@@ -45,8 +45,8 @@ function calculateScore() {
 
     const resultMessage = document.getElementById("result-message");
     resultMessage.textContent = isArabic
-        ? `حصلت على ${score} من 2`
-        : `You scored ${score} out of 2`;
+        ? `حصلت على ${score} من 3`
+        : `You scored ${score} out of 3`;
 }
 
 function goToPage(page) {
