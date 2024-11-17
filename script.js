@@ -45,8 +45,8 @@ function calculateScore() {
 
     const resultMessage = document.getElementById("result-message");
     resultMessage.textContent = isArabic
-        ? `حصلت على ${score} 4 من `
-        : `You scored ${score} out of 4`;
+        ? `حصلت على ${score} 2 من `
+        : `You scored ${score} out of 2`;
 }
 
 function goToPage(page) {
