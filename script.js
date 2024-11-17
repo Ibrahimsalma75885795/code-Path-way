@@ -4,7 +4,7 @@ function switchLanguage() {
     const elements = {
         title: { en: "Programming Skills Test", ar: "اختبار مهارات البرمجة" },
         "test-instruction": {
-            en: "Answer the following 3 questions to assess your skills:",
+            en: "Answer the following 2 questions to assess your skills:",
             ar: "أجب عن الأسئلة  التالية لتقييم مهاراتك:"
         },
         q1: {
